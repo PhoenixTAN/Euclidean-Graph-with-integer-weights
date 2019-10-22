@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 /*
 Author: Ziqi Tan
 */
@@ -21,6 +23,7 @@ public class Solution {
 	public static boolean findEuclideanGraph(int N) {
 		int numOfvertices = 4;
 		Point[] points = new Point[numOfvertices];
+		HashSet<Double> distance = new HashSet<Double>();
 		int min = 1;
 		int max = 101;
 		// initialize the points
@@ -40,15 +43,24 @@ public class Solution {
 		// Use slope
 		if( isLine(points) ) {
 			return false;
-		}
+		}		
 		// calculate the distances between every two points
 		for( int i = 0; i < numOfvertices-1; i++ ) {
 			for( int j = i + 1; j < numOfvertices; j++ ) {
 				double dis = Math.sqrt((points[i].x - points[j].x) * (points[i].x - points[j].x) 
 						+ (points[i].y - points[j].y) * (points[i].y - points[j].y));
+				
 				// System.out.println(dis);
+				// Every weight should be integer.
 				if( dis > (int)dis ) {
 					return false;
+				}
+				// if you do not allow that any two weights are the same.
+				if( distance.contains(dis) ) {
+					return false;
+				}
+				else {
+					distance.add(dis);
 				}
 			}
 		}
@@ -128,6 +140,7 @@ public class Solution {
 		// matlab code
 		System.out.println();
 		System.out.println("%% Matlab Visualization code");
+		System.out.println("close all;");
 		System.out.print("x = [ ");
 		for( int i = 0; i < numOfvertices; i++ ) {
 			System.out.print(points[i].x + " ");
