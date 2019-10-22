@@ -74,6 +74,7 @@ public class Solution {
 		// for point 4
 		// (y2-y1)*(x3-x2) = (y3-y2)*(x2-x1)
 		// y21 * x32 = y32 * x21
+		// 
 		boolean rollingFlag = true; 
 		for( int i = 3; i < numOfvertices; i++ ) {
 			if( rollingFlag ) {
@@ -112,7 +113,6 @@ public class Solution {
 	// print points and distances
 	private static void print(Point[] points) {
 		int numOfvertices = points.length;
-		System.out.println("Result: ");
 		for( int i = 0; i < numOfvertices; i++ ) {
 			System.out.println("(" + points[i].x + ", " + points[i].y + ")");
 		}
@@ -152,4 +152,5 @@ public class Solution {
 		int N = 4;  // N has to be more than 3
 		while( !findEuclideanGraph(N) ) {};
 	}
+
 }
