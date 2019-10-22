@@ -1,5 +1,8 @@
 # Euclidean-Graph-with-integer-weights
-Yield a euclidean graph with all its weights which are integers. All vertices cannot be in one line.
+Yield a euclidean graph with all its weights which are integers. All vertices cannot be in one line.  
+
+Environment: Eclipse. Run Solution.java in Eclipse directly.  
+We can use Matlab to visualize the graph. Run EuclideanGraph.m in Matlab directly.
 
 Definition of Euclidean Graph:  
 A Euclidean graph is a graph in which the vertices represent points in the plane,   
