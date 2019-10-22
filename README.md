@@ -5,18 +5,25 @@ Definition of Euclidean Graph:
 A Euclidean graph is a graph in which the vertices represent points in the plane,   
 and the edges are assigned lengths equal to the Euclidean distance between those points.  
 
-Example 1:  
-
-(20, 16)  
-(88, 67)  
-(96, 73)  
-(72, 55) 
-
-
-distance:   
-a-b: 85.0  
-a-c: 95.0  
-a-d: 65.0  
-b-c: 10.0  
-b-d: 20.0  
-c-d :30.0  
+Example:  
+(49, 47)  
+(85, 32)  
+(49, 17)  
+(29, 32)  
+Distance between Point 0 and Point 1 39.0  
+Distance between Point 0 and Point 2 30.0  
+Distance between Point 0 and Point 3 25.0  
+Distance between Point 1 and Point 2 39.0  
+Distance between Point 1 and Point 3 56.0  
+Distance between Point 2 and Point 3 25.0  
+  
+%% Matlab Visualization code  
+x = [ 49 85 49 29 ];  
+y = [ 47 32 17 32 ];  
+distanceMat = pdist( [   
+49, 47;  
+85, 32;  
+49, 17;  
+29, 32;  
+] )  
+scatter(x, y);  
