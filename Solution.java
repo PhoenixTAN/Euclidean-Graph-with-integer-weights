@@ -61,11 +61,11 @@ public class Solution {
 		int numOfvertices = points.length;
 		// use slope
 		// (y1-y0)*(x2-x1)=(y2-y1)*(x1-x0)
-		int y10 = Math.abs(points[1].y - points[0].y);
-		int x21 = Math.abs(points[2].x - points[1].x);
+		int y10 = points[1].y - points[0].y;
+		int x21 = points[2].x - points[1].x;
 		
-		int y21 = Math.abs(points[2].y - points[1].y);
-		int x10 = Math.abs(points[1].x - points[0].x);
+		int y21 = points[2].y - points[1].y;
+		int x10 = points[1].x - points[0].x;
 		
 		if( y10*x21 != y21*x10 ) {
 			return false;
@@ -74,20 +74,19 @@ public class Solution {
 		// for point 4
 		// (y2-y1)*(x3-x2) = (y3-y2)*(x2-x1)
 		// y21 * x32 = y32 * x21
-		// 
 		boolean rollingFlag = true; 
 		for( int i = 3; i < numOfvertices; i++ ) {
 			if( rollingFlag ) {
-				y10 = Math.abs(points[i].y - points[i-1].y);
-				x10 = Math.abs(points[i].x - points[i-1].x);
+				y10 = points[i].y - points[i-1].y;
+				x10 = points[i].x - points[i-1].x;
 				if( y10*x21 != y21*x10 ) {
 					return false;
 				}
 				rollingFlag = !rollingFlag;
 			}
 			else {				
-				y21 = Math.abs(points[i].y - points[i-1].y);
-				x21 = Math.abs(points[i].x - points[i-1].x);
+				y21 = points[i].y - points[i-1].y;
+				x21 = points[i].x - points[i-1].x;
 				if( y10*x21 != y21*x10 ) {
 					return false;
 				}
@@ -113,6 +112,7 @@ public class Solution {
 	// print points and distances
 	private static void print(Point[] points) {
 		int numOfvertices = points.length;
+		System.out.println("Result: ");
 		for( int i = 0; i < numOfvertices; i++ ) {
 			System.out.println("(" + points[i].x + ", " + points[i].y + ")");
 		}
